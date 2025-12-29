@@ -1,42 +1,84 @@
+# ===== Colors =====
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+CYAN = "\033[96m"
+BOLD = "\033[1m"
+RESET = "\033[0m"
+
+# ===== Logo =====
+logo = """
+██████╗ ██╗  ██╗███████╗███████╗███╗   ██╗ █████╗ 
+██╔══██╗██║  ██║██╔════╝██╔════╝████╗  ██║██╔══██╗
+██║  ██║███████║█████╗  █████╗  ██╔██╗ ██║███████║
+██║  ██║██╔══██║██╔══╝  ██╔══╝  ██║╚██╗██║██╔══██║
+██████╔╝██║  ██║███████╗███████╗██║ ╚████║██║  ██║
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝
+"""
+
+
+print(GREEN + BOLD + logo + RESET)
+print(RED + "Welcome to My Calculator  CLI Application" + RESET)
+print(CYAN + "With great power comes great responsibility. Happy learning." + RESET)
+print("-" * 60)
+
+
+
 def add(x, y):
-    print("result of addition is : ", x+y)
-    return add
+   # print("Result of additon is :",x+y)
+    return x+y
 
 def sub(x, y):
-    print("Result of substraction is :", x-y)
-    return sub
+    #print("result of Substraction is :", x-y)
+    return x-y
 
 def multi(x, y):
-    print("Result of multi is :",x*y)
-    return multi
+    return x*y
 
 def div(x, y):
-    print("result of div is :",x/y)
-    return div
+    if y == 0:
+        return "error : cant divide by zero"
+    return x/y
 
+name = input("Enter the your name ..")
+#print("Welocme {} To My CLI Calculator APP".format(name))
 
+operations = {
+    1 : add,
+    2 : sub,
+    3 : multi,
+    4 : div
+}
 
-operation ={
-    1:add,
-    2:sub,
-    3:multi,
-    4:div
+messages = {
+    1 : "Result of Addition is : " ,
+    2 : "Result of Subtraction is : ",
+    3 : "Result of Multiplication is : ",
+    4 : "Result of Division is : "
+
 }
 
 try:
-    num1 = float(input("enter the first number"))
-    num2 = float(input("enter the second number"))
-except ValueError:
-    print("enter correct format ...")
+    num1 = float(input("enter the first number : "))
+    num2 = float(input("enter the second number : "))
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    num3 = int(input("choose the options :  "))
     
-    num3 = int(input("choose the options you want do operations : "))
+except ValueError as numeric_number:
+    print("enter only numeric values here ...")
+    exit()
 
-
-if num3 in operation:
-    result = operation[num3](num1, num2)
+if num3 in operations:
+    result = operations[num3](num1, num2)
+    # if num3== 1:
+    #     print("Result of additon is ",num3)
+    # elif num3 == 2:
+    #     print("Result of substraction is :",num3)
+    print(messages[num3],result)
 else:
-    print("choose the correct option..")
+    print("choose correct first ...")
 
-print("thanks for choosing my cal app")
-
-
+print("thanks for choosing this app regards dheena")
