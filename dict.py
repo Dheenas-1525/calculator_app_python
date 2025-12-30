@@ -84,7 +84,7 @@ while choice == 'y':
         #     print("Result of additon is ",num3)
         # elif num3 == 2:
         #     print("Result of substraction is :",num3)
-        print(messages[num3],result)
+        print(messages[num3],round(result, 2))
     else:
         print("choose correct first ...")
 
