@@ -41,11 +41,12 @@ def div(x, y):
     return x/y
 
 
+name = input("Enter  your name :  ")
+print("Welcome {} To My CLI Calculator APP".format(name))
 
 choice = 'y'
 while choice == 'y':
-    name = input("Enter the your name ..")
-    print("Welocme {} To My CLI Calculator APP".format(name))
+    
 
     operations = {
         1 : add,
@@ -73,7 +74,7 @@ while choice == 'y':
         
     except ValueError as numeric_number:
         print("enter only numeric values here ...")
-        exit()
+        continue
 
     if num3 in operations:
         result = operations[num3](num1, num2)
