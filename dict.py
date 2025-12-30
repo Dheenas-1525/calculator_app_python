@@ -40,45 +40,51 @@ def div(x, y):
         return "error : cant divide by zero"
     return x/y
 
-name = input("Enter the your name ..")
-#print("Welocme {} To My CLI Calculator APP".format(name))
 
-operations = {
-    1 : add,
-    2 : sub,
-    3 : multi,
-    4 : div
-}
 
-messages = {
-    1 : "Result of Addition is : " ,
-    2 : "Result of Subtraction is : ",
-    3 : "Result of Multiplication is : ",
-    4 : "Result of Division is : "
+choice = 'y'
+while choice == 'y':
+    name = input("Enter the your name ..")
+    print("Welocme {} To My CLI Calculator APP".format(name))
 
-}
+    operations = {
+        1 : add,
+        2 : sub,
+        3 : multi,
+        4 : div
+    }
 
-try:
-    num1 = float(input("enter the first number : "))
-    num2 = float(input("enter the second number : "))
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
-    num3 = int(input("choose the options :  "))
-    
-except ValueError as numeric_number:
-    print("enter only numeric values here ...")
-    exit()
+    messages = {
+        1 : "Result of Addition is : " ,
+        2 : "Result of Subtraction is : ",
+        3 : "Result of Multiplication is : ",
+        4 : "Result of Division is : "
 
-if num3 in operations:
-    result = operations[num3](num1, num2)
-    # if num3== 1:
-    #     print("Result of additon is ",num3)
-    # elif num3 == 2:
-    #     print("Result of substraction is :",num3)
-    print(messages[num3],result)
-else:
-    print("choose correct first ...")
+    }
 
-print("thanks for choosing this app regards dheena")
+    try:
+        num1 = float(input("enter the first number : "))
+        num2 = float(input("enter the second number : "))
+        print("1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+        num3 = int(input("choose the options :  "))
+        
+    except ValueError as numeric_number:
+        print("enter only numeric values here ...")
+        exit()
+
+    if num3 in operations:
+        result = operations[num3](num1, num2)
+        # if num3== 1:
+        #     print("Result of additon is ",num3)
+        # elif num3 == 2:
+        #     print("Result of substraction is :",num3)
+        print(messages[num3],result)
+    else:
+        print("choose correct first ...")
+
+    choice = input("Do you want to continue? (y/n): ").lower()
+    if choice != 'y':
+        print("thanks for choosing this app regards dheena")
