@@ -37,25 +37,21 @@ def multi(x, y):
 
 def div(x, y):
     if y == 0:
-        return "error : cant divide by zero"
+        return "error : can't divide by zero"
     return x/y
 
 
 name = input("Enter  your name :  ")
 print("Welcome {} To My CLI Calculator APP".format(name))
 
-choice = 'y'
-while choice == 'y':
-    
-
-    operations = {
+operations = {
         1 : add,
         2 : sub,
         3 : multi,
         4 : div
     }
 
-    messages = {
+messages = {
         1 : "Result of Addition is : " ,
         2 : "Result of Subtraction is : ",
         3 : "Result of Multiplication is : ",
@@ -63,9 +59,15 @@ while choice == 'y':
 
     }
 
+choice = 'y'
+while choice == 'y':
+    
+
+   
+
     try:
-        num1 = float(input("enter the first number : "))
-        num2 = float(input("enter the second number : "))
+        num1 = float(input("Enter the first number : "))
+        num2 = float(input("Enter the second number : "))
         print("1. Addition")
         print("2. Subtraction")
         print("3. Multiplication")
